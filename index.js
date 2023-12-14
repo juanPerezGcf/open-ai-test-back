@@ -2,9 +2,12 @@ const express = require("express");
 const app = express();
 const port = 3000;
 
-// Ruta GET /ikigai
+app.use("/assets", express.static("assets"));
+
+// Ruta GET /ikigai para servir la imagen
 app.get("/ikigai", (req, res) => {
-  res.send("Bienvenido a la ruta Ikigai");
+  // Envía la imagen desde la carpeta "assets"
+  res.sendFile(__dirname + "/assets/ikkigai_diagram.svg");
 });
 
 // Iniciar el servidor
